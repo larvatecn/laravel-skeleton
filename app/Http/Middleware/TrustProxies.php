@@ -5,6 +5,7 @@
  * @copyright Copyright (c) 2010-2099 Jinan Larva Information Technology Co., Ltd.
  * @link http://www.larva.com.cn/
  */
+
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Middleware\TrustProxies as Middleware;
@@ -17,7 +18,14 @@ class TrustProxies extends Middleware
      *
      * @var array|string|null
      */
-    protected $proxies;
+    protected $proxies = [
+        '116.129.251.0/24',
+        '123.235.30.0/24',
+        '27.221.27.0/24',
+        '123.130.123.0/24',
+        '124.89.34.0/24',
+        '58.20.204.0/24'
+    ];
 
     /**
      * The headers that should be used to detect proxies.

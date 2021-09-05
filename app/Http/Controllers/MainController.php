@@ -5,10 +5,12 @@
  * @copyright Copyright (c) 2010-2099 Jinan Larva Information Technology Co., Ltd.
  * @link http://www.larva.com.cn/
  */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Larva\Transaction\Transaction;
 
 /**
  * Class MainController
@@ -22,7 +24,37 @@ class MainController extends Controller
      */
     public function index()
     {
+        print_r(request()->getClientIp());
+        exit;
         return view('main.index');
+    }
+
+    /**
+     * 发起退款
+     * @param Request $request
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function refund(Request $request): JsonResponse
+    {
+        $charge = Transaction::getCharge($request->get('charge_id'));
+        $state = $charge->refund('test');
+        return response()->json($state->toArray());
+    }
+
+    /**
+     * 付款成功
+     * @return JsonResponse
+     * @throws \Yansongda\Pay\Exceptions\GatewayException
+     * @throws \Yansongda\Pay\Exceptions\InvalidArgumentException
+     * @throws \Yansongda\Pay\Exceptions\InvalidSignException
+     */
+    public function charge(Request $request): JsonResponse
+    {
+        $charge = Transaction::getCharge($request->get('charge_id'));
+        //$pay = Transaction::wechat()->find($charge->id);
+        $state = $charge->markSucceeded('test');
+        return response()->json($charge->toArray());
     }
 
     /**

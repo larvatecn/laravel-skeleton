@@ -26,7 +26,8 @@
         "larva/laravel-socialite": "^1.1",
         "larva/support": "^1.2",
         "overtrue/pinyin": "^4.0",
-        "vinkla/hashids": "^9.1"
+        "vinkla/hashids": "^9.1",
+        "larva/laravel-transaction": "2.x-dev"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -81,5 +82,11 @@
         "autoloader-suffix": "_laravel"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../../Packages/laravel-transaction"
+        }
+    ]
 }

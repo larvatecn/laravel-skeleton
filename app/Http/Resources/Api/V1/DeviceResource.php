@@ -8,11 +8,13 @@
 namespace App\Http\Resources\Api\V1;
 
 use App\Http\Resources\JsonResource;
+use App\Models\Device;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 /**
  * 设备资料响应
- * @mixin \App\Models\Device
+ * @mixin Device
  *
  * @author Tongle Xu <xutongle@gmail.com>
  */
@@ -38,5 +40,17 @@ class DeviceResource extends JsonResource
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),
         ];
+    }
+
+    /**
+     * 自定义响应信息
+     *
+     * @param Request $request
+     * @param Response $response
+     * @return void
+     */
+    public function withResponse($request, $response)
+    {
+        $response->setStatusCode(200);
     }
 }

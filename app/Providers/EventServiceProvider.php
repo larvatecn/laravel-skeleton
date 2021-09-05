@@ -33,7 +33,8 @@ class EventServiceProvider extends ServiceProvider
     protected $subscribe = [
         \App\Listeners\PassportSubscriber::class,
         \App\Listeners\UserIdentitySubscriber::class,
-        \App\Listeners\UserSubscriber::class
+        \App\Listeners\UserSubscriber::class,
+        \App\Listeners\TransactionSubscriber::class,
     ];
 
     /**
