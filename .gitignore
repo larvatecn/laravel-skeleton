@@ -1,0 +1,47 @@
+# phpstorm project files
+.idea
+
+# vscode project files
+.vscode
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+
+# Node.js modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+#homestead files
+Homestead.json
+Homestead.yaml
+
+# laravel project files
+/public/hot
+/public/storage
+/public/coverage
+/public/build
+.env
+.env.backup
+.phpunit.result.cache
+.php-cs-fixer.cache

@@ -1,0 +1,24 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "header_comment": {
+            "comment_type": "PHPDoc",
+            "header": "This is NOT a freeware, use is subject to license terms.",
+            "separate": "bottom",
+            "location": "after_open"
+        }
+    },
+    "exclude": [
+        "bootstrap",
+        "config",
+        "database",
+        "lang",
+        "node_modules",
+        "public",
+        "storage",
+        "vendor",
+        "resources",
+        "routes",
+        "tests"
+    ]
+}
