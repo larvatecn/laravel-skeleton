@@ -168,6 +168,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // 取消 Telescope 自动注册
+        //App\Providers\TelescopeServiceProvider::class,
     ])->toArray(),
 
     /*
