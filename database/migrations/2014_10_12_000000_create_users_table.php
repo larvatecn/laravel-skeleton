@@ -12,12 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->id()->comment('用户ID');
+            $table->string('username')->unique()->nullable()->comment('用户名');
+            $table->string('email')->unique()->nullable()->comment('邮箱');
+            $table->string('phone', 11)->unique()->nullable()->comment('手机号');
+            $table->string('nickname')->nullable()->comment('昵称');
+            $table->string('avatar')->nullable()->comment('头像');
+            $table->unsignedTinyInteger('status')->default(0)->comment('状态：0、active，1、frozen');
+        
+            $table->string('password')->nullable()->comment('密码');
+            $table->rememberToken()->comment('记住我token');
             $table->timestamps();
             $table->softDeletes()->comment('删除时间');
 
